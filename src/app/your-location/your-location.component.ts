@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-your-location',
@@ -6,15 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./your-location.component.css'],
 })
 export class YourLocationComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
 
   lat: number;
   long: number;
 
   ngOnInit() {
     this.getLocation();
+    // this.router.navigate(['www.google.com'])
   }
-
   getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(

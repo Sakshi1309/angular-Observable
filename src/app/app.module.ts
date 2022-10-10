@@ -8,9 +8,10 @@ import { HelloComponent } from './hello.component';
 import { AppChild } from './child/child.component';
 import { YourLocationComponent } from './your-location/your-location.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, HttpClientModule ],
+  imports:      [ BrowserModule, FormsModule, HttpClientModule, RouterModule ],
   declarations: [ AppComponent, HelloComponent, AppChild, YourLocationComponent ],
   providers: [AppService],
   bootstrap:    [ AppComponent ]
