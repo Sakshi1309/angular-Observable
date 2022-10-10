@@ -29,5 +29,21 @@ export class AppChild implements OnInit {
       error: (e) => console.error(e),
       complete: () => console.info('complete'),
     });
+
+    const promise = new Promise((resolve, reject) => {
+      if (false) {
+        resolve('resolve called');
+      } else {
+        reject('reject called');
+      }
+    });
+
+    promise
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 }
