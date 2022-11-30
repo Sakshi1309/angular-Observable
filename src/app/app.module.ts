@@ -11,9 +11,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, HttpClientModule, RouterModule ],
-  declarations: [ AppComponent, HelloComponent, AppChild, YourLocationComponent ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot([]),
+  ],
+  declarations: [AppComponent, HelloComponent, AppChild, YourLocationComponent],
   providers: [AppService],
-  bootstrap:    [ AppComponent ]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

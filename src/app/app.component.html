@@ -1,13 +1,13 @@
-<!-- <hello name="{{ name }}"></hello>
 <p>Start editing to see some magic happen :)</p>
-
-<app-child></app-child>
-
 <br />
 
 <div class="container">
   <input type="text" placeholder="enter name..." name="uName" #uName />
   <br /><br />
   <button type="button" (click)="changeName(uName)">Submit</button>
-</div> -->
+</div>
+
+<hello [name]="name"></hello>
+<app-child></app-child>
+
 <app-your-location></app-your-location>

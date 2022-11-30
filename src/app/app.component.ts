@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
         console.log('2');
       },
       error: (err) => {
-        console.log('err');
+        console.log(err);
       },
       complete: () => {
         console.log('complete');

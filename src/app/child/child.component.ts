@@ -17,25 +17,39 @@ export class AppChild implements OnInit {
   }
 
   ngOnInit() {
-    const obsUsingConstructor = new Observable((observer) => {
-      observer.next('1');
-      observer.next('2');
-      observer.next('3');
+    const obsUsingCons = new Observable((observer) => {
+      observer.next('Hello');
+      observer.next('My name is');
+      observer.next('Nikki');
+      // observer.error('Wrong text');
       observer.complete();
     });
 
-    obsUsingConstructor.subscribe({
-      next: (v) => console.log(v),
-      error: (e) => console.error(e),
-      complete: () => console.info('complete'),
+    obsUsingCons.subscribe({
+      next: (msg) => {
+        console.log(msg);
+      },
+
+      error: (err) => {
+        console.log(err);
+      },
+
+      complete: () => {
+        console.log('Observable completed');
+      },
     });
 
     const promise = new Promise((resolve, reject) => {
+      console.log('Promise begin');
       if (false) {
         resolve('resolve called');
       } else {
         reject('reject called');
       }
+      console.log('Promise begin 2');
+      setTimeout(() => {
+        console.log('Promise begin 3');
+      }, 1000);
     });
 
     promise

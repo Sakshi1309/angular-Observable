@@ -14,7 +14,7 @@ export class YourLocationComponent implements OnInit {
 
   ngOnInit() {
     this.getLocation();
-    // this.router.navigate(['www.google.com'])
+    // this.router.navigate(['www.google.com']);
   }
   getLocation() {
     if (navigator.geolocation) {
