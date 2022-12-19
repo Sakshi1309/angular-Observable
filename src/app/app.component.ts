@@ -18,15 +18,15 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this._as.fetchData().subscribe({
-      next: (res) => {
+      next(res) {
         console.log(res);
         console.log('1');
         console.log('2');
       },
-      error: (err) => {
+      error(err) {
         console.log(err);
       },
-      complete: () => {
+      complete() {
         console.log('complete');
       },
     });
