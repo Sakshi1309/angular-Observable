@@ -10,6 +10,7 @@ import { YourLocationComponent } from './your-location/your-location.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ReversePipe } from './Pipes/demo.pipe';
+import { HighlightDirctive } from './Directive/highlight.directive';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { ReversePipe } from './Pipes/demo.pipe';
     AppChild,
     YourLocationComponent,
     ReversePipe,
+    HighlightDirctive,
   ],
   providers: [AppService],
   bootstrap: [AppComponent],

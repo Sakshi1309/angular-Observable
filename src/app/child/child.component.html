@@ -1,6 +1,17 @@
 <!DOCTYPE html>
-<div>My name is {{ name }}</div>
+<div>My name is {{ name | uppercase }}</div>
+<!-- {{ number | uppercase }} -->
 <div>
-  <h4>String Reverse pipe test</h4>
-  'Reverse this string'
+  <h4>Testing Customised Pipe</h4>
+  {{ 'Reverse this string' | reverse }}
+</div>
+
+<div>
+  <h4>Testing Customised Directive</h4>
+  <p highlight>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde saepe
+    aspernatur autem hic fuga repudiandae debitis explicabo sapiente nam
+    deleniti cumque, sunt, distinctio ab magni maxime accusantium mollitia!
+    Molestiae itaque doloribus laborum ipsa voluptates.
+  </p>
 </div>

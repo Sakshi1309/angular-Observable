@@ -9,6 +9,7 @@ import { AppService } from '../app.service';
 })
 export class AppChild implements OnInit {
   name;
+  public number: number = 12345;
 
   constructor(private _as: AppService) {
     this._as.name.subscribe((userName) => {
