@@ -8,3 +8,14 @@ export class HighlightDirctive {
     eleRef.nativeElement.style.background = 'red';
   }
 }
+
+
+@Directive({
+  selector: '[truncate]'
+})
+
+export class TruncateDirective {
+  constructor() {}
+  
+
+}
