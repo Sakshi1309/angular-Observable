@@ -9,6 +9,7 @@ import { AppChild } from './child/child.component';
 import { YourLocationComponent } from './your-location/your-location.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { ReversePipe } from './Pipes/demo.pipe';
 
 @NgModule({
   imports: [
@@ -17,7 +18,13 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     RouterModule.forRoot([]),
   ],
-  declarations: [AppComponent, HelloComponent, AppChild, YourLocationComponent],
+  declarations: [
+    AppComponent,
+    HelloComponent,
+    AppChild,
+    YourLocationComponent,
+    ReversePipe,
+  ],
   providers: [AppService],
   bootstrap: [AppComponent],
 })
