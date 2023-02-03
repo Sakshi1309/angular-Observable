@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppService } from './app.service';
-import { HelloComponent } from './hello.component';
-import { AppChild } from './child/child.component';
-import { YourLocationComponent } from './your-location/your-location.component';
+import { HelloComponent } from './Components/hello.component';
+import { AppChild } from './Components/child/child.component';
+import { YourLocationComponent } from './Components/your-location/your-location.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ReversePipe } from './Pipes/demo.pipe';
