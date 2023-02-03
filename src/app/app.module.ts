@@ -25,7 +25,7 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot([]),
+    RouterModule.forRoot(routes),
   ],
   declarations: [
     AppComponent,
@@ -36,6 +36,7 @@ const routes: Routes = [
     HighlightDirctive,
     TruncateDirective,
   ],
+  exports: [RouterModule],
   providers: [AppService],
   bootstrap: [AppComponent],
 })
