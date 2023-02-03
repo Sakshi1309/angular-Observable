@@ -10,12 +10,16 @@ export class HighlightDirctive {
 }
 
 @Directive({
-  selector: '[truncate]',
+  selector: '[hoverColor]',
 })
 export class TruncateDirective {
   constructor(public eleRef2: ElementRef) {}
   @HostListener('mouseenter') onMouseEnter(event) {
     // if (event) console.log(event);
     this.eleRef2.nativeElement.style.background = 'blue';
+  }
+  @HostListener('mouseleave') onMouseLeave(event) {
+    // if (event) console.log(event);
+    this.eleRef2.nativeElement.style.background = 'white';
   }
 }
