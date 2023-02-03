@@ -6,8 +6,17 @@
   <br /><br />
   <button type="button" (click)="changeName(uName)">Submit</button>
 </div>
+<br />
+<nav>
+  <a routerLink="/child">Child Component Link</a>
+  <!-- <a [routerLink]="['child']" [queryParams]="{ debug: true }"
+    >Child Component Link</a
+  > -->
+</nav>
 
 <hello [name]="name"></hello>
 <app-child></app-child>
+
+<router-outlet></router-outlet>
 
 <app-your-location></app-your-location>
