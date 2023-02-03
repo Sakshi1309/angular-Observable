@@ -16,9 +16,10 @@ import {
 } from './Directive/highlight.directive';
 
 const routes: Routes = [
-  { path: 'child', component: AppChild },
-  { path: 'location', component: YourLocationComponent },
-  { path: 'forms', component: HelloComponent },
+  // { path: '', component: AppComponent, pathMatch: 'full' },
+  { path: 'child', component: AppChild, pathMatch: 'full' },
+  { path: 'location', component: YourLocationComponent, pathMatch: 'full' },
+  { path: 'forms', component: HelloComponent, pathMatch: 'full' },
 ];
 @NgModule({
   imports: [

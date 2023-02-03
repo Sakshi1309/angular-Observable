@@ -1,6 +1,6 @@
 <p>Start editing to see some magic happen :)</p>
 <br />
-
+<hello [name]="name"></hello>
 <div class="container">
   <input type="text" placeholder="enter name..." name="uName" #uName />
   <br /><br />
@@ -8,15 +8,12 @@
 </div>
 <br />
 <nav>
-  <a routerLink="/child">Child Component Link</a>
+  <a routerLink="/">Home Component Link</a> &nbsp;&nbsp;&nbsp;
+  <a routerLink="/child">Child Component Link</a> &nbsp;&nbsp;&nbsp;
+  <a routerLink="/location">Location Component Link</a>
   <!-- <a [routerLink]="['child']" [queryParams]="{ debug: true }"
     >Child Component Link</a
   > -->
 </nav>
 
-<hello [name]="name"></hello>
-<app-child></app-child>
-
 <router-outlet></router-outlet>
-
-<app-your-location></app-your-location>
