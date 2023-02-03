@@ -1,4 +1,4 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, HostListener, ElementRef } from '@angular/core';
 
 @Directive({
   selector: '[highlight]',
@@ -9,13 +9,14 @@ export class HighlightDirctive {
   }
 }
 
-
 @Directive({
-  selector: '[truncate]'
+  selector: '[truncate]',
 })
-
 export class TruncateDirective {
-  constructor() {}
-  
-
+  constructor(public eleRef2: ElementRef) {}
+  @HostListener('hover', ['$event'])
+  onhover(event) {
+    if (event) console.log(event);
+    this.eleRef2.nativeElement.style.background = 'blue';
+  }
 }
