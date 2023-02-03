@@ -14,9 +14,8 @@ export class HighlightDirctive {
 })
 export class TruncateDirective {
   constructor(public eleRef2: ElementRef) {}
-  @HostListener('hover', ['$event'])
-  onhover(event) {
-    if (event) console.log(event);
+  @HostListener('mouseenter') onMouseEnter(event) {
+    // if (event) console.log(event);
     this.eleRef2.nativeElement.style.background = 'blue';
   }
 }
