@@ -8,12 +8,29 @@
 </div>
 <br />
 <nav>
-  <a routerLink="/">Home Component Link</a> &nbsp;&nbsp;&nbsp;
-  <a routerLink="/child">Child Component Link</a> &nbsp;&nbsp;&nbsp;
-  <a routerLink="/location">Location Component Link</a>
+  <a [routerLink]="[]">Home Component Link</a> &nbsp;&nbsp;&nbsp;
+  <a [routerLink]="['child']">Child Component Link</a> &nbsp;&nbsp;&nbsp;
+  <a [routerLink]="['location']">Location Component Link</a> &nbsp;&nbsp;&nbsp;
+  <a
+    [routerLink]="[
+      {
+        outlets: {
+          sidebar: ['sidebar']
+        }
+      }
+    ]"
+    >Sidebar Component Link</a
+  >
   <!-- <a [routerLink]="['child']" [queryParams]="{ debug: true }"
     >Child Component Link</a
   > -->
 </nav>
 
-<router-outlet></router-outlet>
+<div>
+  <div style="float:left">
+    <router-outlet></router-outlet>
+  </div>
+  <div style="float:right">
+    <router-outlet name="sidebar"></router-outlet>
+  </div>
+</div>
