@@ -7,6 +7,7 @@ import { AppService } from './app.service';
 import { HelloComponent } from './Components/hello.component';
 import { AppChild } from './Components/child/child.component';
 import { BookComponent } from './Components/book/book.component';
+import { EBookComponent } from './Components/book/eBook.component';
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { YourLocationComponent } from './Components/your-location/your-location.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: 'location', component: YourLocationComponent, pathMatch: 'full' },
   { path: 'forms', component: HelloComponent, pathMatch: 'full' },
   { path: 'sidebar', component: SidebarComponent, outlet: 'sidebar' },
-  { path: 'book', component: BookComponent },
+  { path: 'book', component: BookComponent, pathMatch: 'full' },
+  { path: 'e-book', component: EBookComponent, pathMatch: 'full' },
 ];
 @NgModule({
   imports: [
@@ -39,6 +41,7 @@ const routes: Routes = [
     YourLocationComponent,
     SidebarComponent,
     BookComponent,
+    EBookComponent,
     ReversePipe,
     HighlightDirctive,
     TruncateDirective,
