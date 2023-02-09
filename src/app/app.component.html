@@ -8,9 +8,9 @@
 </div>
 <br />
 <nav>
-  <a [routerLink]="['']">Home Component Link</a> &nbsp;&nbsp;&nbsp;
-  <a [routerLink]="['child']">Child Component Link</a> &nbsp;&nbsp;&nbsp;
-  <a [routerLink]="['location']">Location Component Link</a> &nbsp;&nbsp;&nbsp;
+  <a [routerLink]="['']">Home Component</a> &nbsp;&nbsp;&nbsp;
+  <a [routerLink]="['child']">Child Component</a> &nbsp;&nbsp;&nbsp;
+  <a [routerLink]="['location']">Location Component</a> &nbsp;&nbsp;&nbsp;
   <a
     [routerLink]="[
       {
@@ -19,9 +19,18 @@
         }
       }
     ]"
-    >Sidebar Component Link</a
+    >Sidebar Component</a
   >&nbsp;&nbsp;&nbsp;
-  <a [routerLink]="['book']">Book Component Link</a> &nbsp;&nbsp;&nbsp;
+  <a [routerLink]="['book']">Book Component</a> &nbsp;&nbsp;&nbsp;
+  <a
+    [routerLink]="['e-book']"
+    [queryParams]="{ type: 'kindle' }"
+    queryParamsHandling="merge"
+    >E-Book Component</a
+  >
+  &nbsp;&nbsp;&nbsp;
+  <a [routerLink]="['product/1234/red/abc']">Product Component</a>
+  &nbsp;&nbsp;&nbsp;
   <!-- <a [routerLink]="['child']" [queryParams]="{ debug: true }"
     >Child Component Link</a
   > -->
@@ -31,6 +40,7 @@
   <div style="float:left">
     <router-outlet></router-outlet>
   </div>
+  <!-- Auxilary Route -->
   <div style="float:right">
     <router-outlet name="sidebar"></router-outlet>
   </div>

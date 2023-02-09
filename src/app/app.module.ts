@@ -10,6 +10,7 @@ import { BookComponent } from './Components/book/book.component';
 import { EBookComponent } from './Components/book/eBook.component';
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { YourLocationComponent } from './Components/your-location/your-location.component';
+import { ProductComponent } from './Components/Product/product.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { ReversePipe } from './Pipes/demo.pipe';
@@ -26,6 +27,10 @@ const routes: Routes = [
   { path: 'sidebar', component: SidebarComponent, outlet: 'sidebar' },
   { path: 'book', component: BookComponent, pathMatch: 'full' },
   { path: 'e-book', component: EBookComponent, pathMatch: 'full' },
+  {
+    path: 'product/:productId/:color/:productType',
+    component: ProductComponent,
+  },
 ];
 @NgModule({
   imports: [
@@ -45,8 +50,9 @@ const routes: Routes = [
     ReversePipe,
     HighlightDirctive,
     TruncateDirective,
+    ProductComponent,
   ],
-  exports: [RouterModule, EBookComponent],
+  exports: [RouterModule],
   providers: [AppService],
   bootstrap: [AppComponent],
 })

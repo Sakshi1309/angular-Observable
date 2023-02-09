@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { EBookComponent } from './eBook.component';
@@ -7,11 +13,11 @@ import { EBookComponent } from './eBook.component';
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.css'],
 })
-export class BookComponent implements OnInit, AfterViewInit {
+export class BookComponent implements OnInit, AfterViewInit, OnDestroy {
   public title = 'Book';
 
   @ViewChild(EBookComponent) child: EBookComponent;
-  constructor(private router: Router, private routes: ActivatedRoute) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     // this.title = new BehaviorSubject<string>('Book');
   }
 
@@ -28,5 +34,11 @@ export class BookComponent implements OnInit, AfterViewInit {
         queryParamsHandling: 'merge',
       });
     }, 3000);
+  }
+
+  ngOnDestroy() {
+    this.activatedRoute.queryParams.subscribe((item) => {
+      console.log('QueryParams', item);
+    });
   }
 }

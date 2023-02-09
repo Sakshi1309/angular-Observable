@@ -14,10 +14,8 @@ export class EBookComponent implements OnInit {
   @ViewChild(BookComponent) parent: BookComponent;
   public title = '...';
   constructor(private router: Router, private routes: ActivatedRoute) {
-    this.title = '......';
+    this.title = 'E-book';
   }
 
-  ngOnInit() {
-    this.title = this.parent.title;
-  }
+  ngOnInit() {}
 }
