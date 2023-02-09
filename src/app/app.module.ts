@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppService } from './app.service';
@@ -19,6 +19,7 @@ import {
   HighlightDirctive,
   TruncateDirective,
 } from './Directive/highlight.directive';
+import { JobPortalComponent } from './Components/JobPortal/jobPortal.component';
 
 const routes: Routes = [
   // { path: '', component: AppComponent, pathMatch: 'full' },
@@ -53,8 +54,9 @@ const routes: Routes = [
     HighlightDirctive,
     TruncateDirective,
     ProductComponent,
+    JobPortalComponent,
   ],
-  exports: [RouterModule],
+  exports: [RouterModule, FormsModule, ReactiveFormsModule],
   providers: [AppService],
   bootstrap: [AppComponent],
 })
