@@ -14,11 +14,11 @@ export class JobPortalComponent implements OnInit {
     lastName: new FormControl(''),
   });
 
-  preview: string = '';
+  preview = [];
 
   ngOnInit() {}
 
   onSave() {
-    this.preview = JSON.stringify(this.jobForm.value);
+    this.preview = this.preview.concat(this.jobForm.value);
   }
 }
