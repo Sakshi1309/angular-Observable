@@ -14,6 +14,7 @@ import { ProductComponent } from './Components/Product/product.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { ReversePipe } from './Pipes/demo.pipe';
+import { UpperCasePipe } from './Pipes/demo.pipe';
 import {
   HighlightDirctive,
   TruncateDirective,
@@ -48,6 +49,7 @@ const routes: Routes = [
     BookComponent,
     EBookComponent,
     ReversePipe,
+    UpperCasePipe,
     HighlightDirctive,
     TruncateDirective,
     ProductComponent,
