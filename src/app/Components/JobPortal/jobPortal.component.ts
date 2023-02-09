@@ -19,6 +19,7 @@ export class JobPortalComponent implements OnInit {
   ngOnInit() {}
 
   onSave() {
-    this.preview = this.preview.concat(this.jobForm.value);
+    this.preview.push(this.jobForm.value);
+    console.log(this.preview);
   }
 }
