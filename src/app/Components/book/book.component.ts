@@ -1,13 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { EBookComponent } from '../../Components/book/eBook.component';
+import { EBookComponent } from './eBook.component';
 @Component({
   selector: 'book',
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.css'],
 })
-export class BookComponent implements OnInit {
+export class BookComponent implements OnInit, AfterViewInit {
   public title = 'Book';
 
   @ViewChild(EBookComponent) child: EBookComponent;
@@ -19,12 +19,10 @@ export class BookComponent implements OnInit {
     this.router.navigate(['/book'], {
       queryParams: { orderBy: 'price', category: 'fiction' },
     });
-    this.changeRoute();
   }
 
-  changeRoute() {
+  ngAfterViewInit() {
     setTimeout(() => {
-      this.child.title = 'E-Book';
       this.router.navigate(['e-book'], {
         queryParams: { name: 'sakshi' },
         queryParamsHandling: 'merge',

@@ -46,7 +46,7 @@ const routes: Routes = [
     HighlightDirctive,
     TruncateDirective,
   ],
-  exports: [RouterModule],
+  exports: [RouterModule, EBookComponent],
   providers: [AppService],
   bootstrap: [AppComponent],
 })
