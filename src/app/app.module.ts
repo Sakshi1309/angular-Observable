@@ -38,6 +38,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
   ],
@@ -56,7 +57,7 @@ const routes: Routes = [
     ProductComponent,
     JobPortalComponent,
   ],
-  exports: [RouterModule, FormsModule, ReactiveFormsModule],
+  exports: [],
   providers: [AppService],
   bootstrap: [AppComponent],
 })

@@ -1,12 +1,3 @@
-<p>Start editing to see some magic happen :)</p>
-<br />
-<hello [name]="name"></hello>
-<div class="container">
-  <input type="text" placeholder="enter name..." name="uName" #uName />
-  <br /><br />
-  <button type="button" (click)="changeName(uName)">Submit</button>
-</div>
-<br />
 <nav>
   <a [routerLink]="['']">Home Component</a> &nbsp;&nbsp;&nbsp;
   <a [routerLink]="['child']">Child Component</a> &nbsp;&nbsp;&nbsp;
@@ -36,6 +27,15 @@
   > -->
 </nav>
 <br />
+<br />
+<p>Start editing to see some magic happen :)</p>
+<br />
+<hello [name]="name"></hello>
+<div class="container">
+  <input type="text" placeholder="enter name..." name="uName" #uName />
+  <br /><br />
+  <button type="button" (click)="changeName(uName)">Submit</button>
+</div>
 <br />
 <br />
 <app-jobportal></app-jobportal>
