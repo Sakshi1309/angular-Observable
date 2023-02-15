@@ -14,12 +14,10 @@ import { EBookComponent } from './eBook.component';
   styleUrls: ['./book.component.css'],
 })
 export class BookComponent implements OnInit, AfterViewInit, OnDestroy {
-  public title = 'Book';
+  public title = new BehaviorSubject<string>('Book');
 
   @ViewChild(EBookComponent) child: EBookComponent;
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
-    // this.title = new BehaviorSubject<string>('Book');
-  }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     this.router.navigate(['/book'], {
@@ -31,7 +29,7 @@ export class BookComponent implements OnInit, AfterViewInit, OnDestroy {
     setTimeout(() => {
       this.router.navigate(['e-book'], {
         queryParams: { name: 'sakshi' },
-        queryParamsHandling: 'merge',
+        queryParamsHandling: 'merge', //preserve
       });
     }, 3000);
   }

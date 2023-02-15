@@ -29,6 +29,7 @@ const routes: Routes = [
   { path: 'sidebar', component: SidebarComponent, outlet: 'sidebar' },
   { path: 'book', component: BookComponent, pathMatch: 'full' },
   { path: 'e-book', component: EBookComponent, pathMatch: 'full' },
+  { path: 'form', component: JobPortalComponent, pathMatch: 'full' },
   {
     path: 'product/:productId/:color/:productType',
     component: ProductComponent,
