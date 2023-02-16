@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { BookComponent } from '../../Components/book/book.component';
+import { BookService } from '../../Components/book/book.service';
 
 @Component({
   selector: 'ebook',
@@ -11,11 +12,20 @@ import { BookComponent } from '../../Components/book/book.component';
   styleUrls: ['./book.component.css'],
 })
 export class EBookComponent implements OnInit {
-  @ViewChild(BookComponent) parent: BookComponent;
   public title = '...';
-  constructor(private router: Router, private routes: ActivatedRoute) {
-    this.title = 'E-book';
+  constructor(
+    private router: Router,
+    private routes: ActivatedRoute,
+    public _bookService: BookService
+  ) {
+    this._bookService.title.subscribe((data) => {
+      this.title = data;
+    });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    setTimeout(() => {
+      this._bookService.title.next('E-bookkkkkkkkkkkkkkkk');
+    }, 1500);
+  }
 }

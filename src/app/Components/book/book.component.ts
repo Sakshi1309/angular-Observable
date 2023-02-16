@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { BookService } from '../../Components/book/book.service';
 import { EBookComponent } from './eBook.component';
 @Component({
   selector: 'book',
@@ -14,15 +15,25 @@ import { EBookComponent } from './eBook.component';
   styleUrls: ['./book.component.css'],
 })
 export class BookComponent implements OnInit, AfterViewInit, OnDestroy {
-  public title = new BehaviorSubject<string>('Book');
+  public name = '';
 
-  @ViewChild(EBookComponent) child: EBookComponent;
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    public _bookService: BookService
+  ) {
+    this._bookService.title.subscribe((data) => {
+      this.name = data;
+    });
+  }
 
   ngOnInit() {
-    this.router.navigate(['/book'], {
+    this.router.navigate(['book'], {
       queryParams: { orderBy: 'price', category: 'fiction' },
     });
+    setTimeout(() => {
+      this._bookService.title.next('Bookkkkkkkkkkkkk');
+    }, 1000);
   }
 
   ngAfterViewInit() {
