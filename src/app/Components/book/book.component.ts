@@ -33,7 +33,7 @@ export class BookComponent implements OnInit, AfterViewInit, OnDestroy {
     });
     setTimeout(() => {
       this._bookService.title.next('Bookkkkkkkkkkkkk');
-    }, 1000);
+    }, 2000);
   }
 
   ngAfterViewInit() {

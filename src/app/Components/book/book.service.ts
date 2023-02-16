@@ -5,7 +5,9 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
   providedIn: 'root',
 })
 export class BookService {
-  public title = new BehaviorSubject<string>('Show Component Name');
+  public title = new BehaviorSubject<string>(
+    `*****where we will show the Component Name*****`
+  );
 
   constructor() {}
 }
