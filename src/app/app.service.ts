@@ -52,22 +52,16 @@ export class AppService {
     });
   }
 
-  usingForkJoinTwice() {
+  usingForkJoinWithError() {
     const users$ = this.http.get('https://jsonplaceholder.typicode.com/users');
     const todos$ = this.http.get('https://jsonplaceholder.typicode.com/todos');
-    const albums$ = this.http.get('https://jsonplaceholder.typicode.com/albums/1000');
-
-    const joinedAndDelayed$ = forkJoin([users$, todos$, albums$]).pipe(
+    const albums$ = this.http.get(
+      'https://jsonplaceholder.typicode.com/albums/1000'
+    );
+    return forkJoin([users$, todos$, albums$]).pipe(
       catchError((err) => {
         return throwError(err);
       })
     );
-    // const users$ = this.http.get('https://jsonplaceholder.typicode.com/users');
-    // const todos$ = this.http.get('https://jsonplaceholder.typicode.com/todos');
-    // const albums$ = this.http.get(
-    //   'https://jsonplaceholder.typicode.com/albums'
-    // );
-
-    return joinedAndDelayed$;
   }
 }

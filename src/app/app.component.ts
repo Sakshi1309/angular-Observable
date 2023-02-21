@@ -32,7 +32,8 @@ export class AppComponent implements OnInit {
         console.log('complete');
       },
     });
-    this._as.usingForkJoinTwice().subscribe({
+    this._as.usingForkJoin();
+    this._as.usingForkJoinWithError().subscribe({
       next(data) {
         console.log(data);
       },
