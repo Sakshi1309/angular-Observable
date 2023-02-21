@@ -35,7 +35,9 @@ export class AppComponent implements OnInit {
     this._as.usingForkJoin();
     this._as.usingForkJoinWithError().subscribe({
       next(data) {
-        console.log(data);
+        setTimeout(() => {
+          console.log(data);
+        }, 3000);
       },
     });
   }
