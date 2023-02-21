@@ -32,7 +32,11 @@ export class AppComponent implements OnInit {
         console.log('complete');
       },
     });
-    this._as.usingForkJoin();
+    this._as.usingForkJoinTwice().subscribe({
+      next(data) {
+        console.log(data);
+      },
+    });
   }
 
   changeName(name) {

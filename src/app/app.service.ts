@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, forkJoin } from 'rxjs';
+import { BehaviorSubject, catchError, forkJoin, from, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -50,5 +50,24 @@ export class AppService {
 
       complete() {},
     });
+  }
+
+  usingForkJoinTwice() {
+    const users$ = this.http.get('https://jsonplaceholder.typicode.com/users');
+    const todos$ = this.http.get('https://jsonplaceholder.typicode.com/todos');
+    const albums$ = this.http.get('https://jsonplaceholder.typicode.com/albums/1000');
+
+    const joinedAndDelayed$ = forkJoin([users$, todos$, albums$]).pipe(
+      catchError((err) => {
+        return throwError(err);
+      })
+    );
+    // const users$ = this.http.get('https://jsonplaceholder.typicode.com/users');
+    // const todos$ = this.http.get('https://jsonplaceholder.typicode.com/todos');
+    // const albums$ = this.http.get(
+    //   'https://jsonplaceholder.typicode.com/albums'
+    // );
+
+    return joinedAndDelayed$;
   }
 }
