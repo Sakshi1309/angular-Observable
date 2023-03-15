@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, forkJoin, from, throwError } from 'rxjs';
+import { BehaviorSubject, Subject, catchError, forkJoin, from, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,11 +9,20 @@ export class AppService {
   constructor(private http: HttpClient) {}
 
   name = new BehaviorSubject<any>('Sakshi');
+  lname: Subject<String> = new Subject<String>;
   users = {};
   albums = {};
   todos = {};
 
   fetchData() {
+    this.lname.subscribe({
+      next(data) {
+        let a = "aaa"
+        console.log("local data:- ", a);
+        console.log("next data:- ", data);
+      }
+    });
+    this.lname.next('Gupta');
     return this.http.get('https://jsonplaceholder.typicode.com/users');
   }
 

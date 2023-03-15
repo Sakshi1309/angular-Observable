@@ -46,4 +46,8 @@ export class AppComponent implements OnInit {
     console.log(name.value);
     this._as.name.next(name.value);
   }
+
+  sendData(event) {
+    console.log('child event called', event);
+  }
 }

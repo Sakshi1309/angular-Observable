@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'hello',
@@ -7,6 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HelloComponent implements OnInit {
   @Input() name: string = '';
-
-  ngOnInit() {}
+  @Output() sendtoParentData = new EventEmitter();
+  ngOnInit() {
+    this.sendtoParentData.emit({
+      name: 'Sakshi',
+      lname: 'Kumari',
+    });
+  }
 }
