@@ -23,6 +23,8 @@ export class AppService {
       }
     });
     this.lname.next('Gupta');
+    this.name.next("Sakshi.....");
+    console.log("Behaviour subject", this.name.value)
     return this.http.get('https://jsonplaceholder.typicode.com/users');
   }
 

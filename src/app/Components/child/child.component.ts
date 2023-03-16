@@ -12,12 +12,18 @@ export class AppChild implements OnInit {
   public number: number = 12345;
 
   constructor(private _as: AppService) {
-    this._as.name.subscribe((userName) => {
-      this.name = userName;
-    });
+    //No need to subscribe this Behaviour Subject
+    // this._as.name.subscribe((userName) => {
+    //   this.name = userName;
+    // });
+
+    this.name = this._as.name.value;
   }
 
   ngOnInit() {
+    // this.name = this._as.name.value;
+    console.log('BehaviorSubject', this._as.name.value);
+    console.log('Local Variable', this.name);
     const obsUsingCons = new Observable((observer) => {
       observer.next('Hello');
       observer.next('My name is');
