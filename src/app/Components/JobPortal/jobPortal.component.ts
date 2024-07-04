@@ -31,5 +31,6 @@ export class JobPortalComponent implements OnInit {
   }
   resetForm() {
     this.jobForm.reset();
+    this.preview = [];
   }
 }
