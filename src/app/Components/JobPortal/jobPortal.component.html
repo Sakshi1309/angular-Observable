@@ -6,18 +6,59 @@
         <div class="col-md-3">
           <label for="firstName" class="form-label">First Name</label>
           <input class="form-control" type="text" formControlName="firstName" />
+          <li *ngIf="!jobForm.get('firstName').value">
+            First name is Required
+          </li>
+          <li
+            *ngIf="
+              jobForm.get('firstName').value !== '' &&
+              !jobForm.get('firstName').valid
+            "
+          >
+            First name is not Valid
+          </li>
         </div>
         <div class="col-md-3">
           <label for="lastName" class="form-label">Last Name</label>
           <input class="form-control" type="text" formControlName="lastName" />
+          <li *ngIf="jobForm.get('lastName').value === ''">
+            Last name is Required
+          </li>
+          <li
+            *ngIf="
+              jobForm.get('lastName').value !== '' &&
+              !jobForm.get('lastName').valid
+            "
+          >
+            Last name is not Valid
+          </li>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="col-md-3">
+          <label for="submitDate" class="form-label"> Submit Date </label>
+          <input
+            type="date"
+            class="form-control"
+            formControlName="submitDate"
+          />
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="jobForm.pristine || jobForm.status === 'INVALID'"
+        >
+          Submit
+        </button>
+        <button type="button" class="btn btn-primary" (click)="resetForm()">Reset </button>
       </form>
     </div>
     <div class="col col-md-4" *ngIf="preview.length > 0">
       <div style="position: fixed">
         <tr *ngFor="let item of preview">
-          <li>{{ item.firstName }} {{ item.lastName }}</li>
+          <section>
+            <li>First Name: {{ item.firstName }}</li>
+            <li>Last Name: {{ item.lastName }}</li>
+            <li>Submitted Date: {{ item.submitDate }}</li>
+          </section>
         </tr>
       </div>
     </div>

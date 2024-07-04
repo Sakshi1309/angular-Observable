@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-jobportal',
@@ -9,17 +9,27 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class JobPortalComponent implements OnInit {
   constructor() {}
 
+  todayDate = new Date();
   jobForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
+    firstName: new FormControl('', Validators.pattern('[A-Z]{3}')),
+    lastName: new FormControl(
+      '',
+      Validators.pattern('[A-Z]{3}-[0-9]{5}-[0-9]{2}')
+    ),
+    submitDate: new FormControl(this.todayDate, Validators.required),
   });
 
   preview = [];
 
   ngOnInit() {}
 
+  check() {}
+
   onSave() {
     this.preview.push(this.jobForm.value);
-    console.log(this.preview);
+    console.log(this.jobForm);
+  }
+  resetForm() {
+    this.jobForm.reset();
   }
 }
